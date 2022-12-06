@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CreditCardForm</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="static/css/form.css">
+
+</head>
+
+<body>
+    <!-- multistep form -->
+<form id="msform">
+    <!-- progressbar -->
+    <ul id="progressbar">
+      <li class="active">Card Selection</li>
+      <li>Input</li>
+      <li>Completed</li>
+    </ul>
+    <!-- fieldsets -->
+    <fieldset>
+      <h2 class="fs-title">Credit Card Application Form</h2>
+      <h3 class="fs-subtitle">Card Type</h3>
+      <select onchange="cl(this)" id="cardSelect">
+        <option value="" >Card Selection</option>
+        <option value="1">ONE+ Platinum Card</option>         
+        <option value="2">ONE+ Titanium Card</option>
+         
+        </select>
+         
+        <div id="check1">
+          <div id="div1" style="display:none;"><img src="static/picture/cc_cardface_one_tc.jpg" style="margin-top:10px;max-width: 80%"></div> 
+          <div id="div2" style="display:none;"><img src="static/picture/cc_cardface_ones_tc.jpg" style="margin-top:10px;max-width: 80%"></div>
+
+        </div>
+
+      <input type="button" name="proceed" class="next action-button" value="Proceed" id="inputProceed" >
+    </fieldset>
+    <fieldset>
+      <h2 class="fs-title">Credit Card Application Form</h2>
+      <h3 class="fs-subtitle">Personal Information</h3>
+      <input type="text" name="firstname" placeholder="First Name">
+      <input type="text" name="lastname" placeholder="Last Name">
+      <input type="text" name="identitynumber" placeholder="Indentity Number">
+      <input type="text" name="mobilenumber" placeholder="Mobile Number">
+      <div class="dateWrapper" name="dahsingdatepicker1511257365539" data-validateexpmessage="Please enter a valid date of birth.	" data-underagecode="999573" tabindex="0" aria-label="Date of Birth">
+  
+              <select class="dayOfBirth" name="dayOfBirth" ><option value="" style="display: none;" selected="">Day</option><option value="1">01</option><option value="2">02</option><option value="3">03</option><option value="4">04</option><option value="5">05</option><option value="6">06</option><option value="7">07</option><option value="8">08</option><option value="9">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
+  
+              <select class="monthOfBirth" name="monthOfBirth"><option value="" style="display: none;" selected="">Month</option><option value="1">01</option><option value="2">02</option><option value="3">03</option><option value="4">04</option><option value="5">05</option><option value="6">06</option><option value="7">07</option><option value="8">08</option><option value="9">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>
+      
+              <select class="yearOfBirth" name="yearOfBirth"><option value="" style="display: none;" selected="">Year</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option></select>
+           </div>
+      <input type="button" name="back" class="previous action-button" value="Back" id="inputBack">
+      <input type="button" name="proceed" class="next action-button" value="Submit"id="inputSubmit">
+    </fieldset>
+    <fieldset>
+      <h2 class="fs-title">Credit Card Application Form</h2>
+      <h3 class="fs-subtitle"> </h3>
+      <div>
+        <div id="check2"></div>
+        <span class="fs-subtitle" ><output type="text" id="myLabel"/></span>
+        <span class="fs-subtitle" >Completed</span>
+        <img src="static/picture/confirm-icon.png" style="margin-top:5px;max-width: 5%"></div>
+      
+    </fieldset>
+  </form> 
+   
+
+    <!-- Start Script -->
+    
+    <script type="text/javascript" src="//cdn.evgnet.com/beacon/partnerdeloittechina/dttbank/scripts/evergage.min.js"></script>
+
+    <script src="static/js/jquery-2.1.3.jquery.min.js"></script>
+    <script src="static/js/jquery-easing-1.3.jquery.easing.min.js"></script>
+    <script src="static/js/form.js"></script>
+    <script>
+ 
+      function cl(obj){
+      
+      $(obj).next("div").find("div").each(function(){
+       
+      $(this).hide();
+       
+      });
+       
+      $("#div" + obj.value).show();
+      var i;
+      i=$("#div" + obj.value).show();
+      $("#check2").html($(i).html());
+      var cardSelect = document.getElementById('cardSelect');
+      var index = cardSelect.selectedIndex;
+      var label = cardSelect.options[index].text;
+
+      console.log('label'+label);
+      document.getElementById('myLabel').value = label;
+      }
+
+      </script>
+
+      
+    <!-- End Script -->
+</body>
+
+</html>

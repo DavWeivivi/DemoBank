@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VipArticle</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="static/image/icon-bank.png">
+    <link rel="shortcut icon" type="image/x-icon" href="static/image/icon-bank.ico">
+
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/templatemo.css">
+    <link rel="stylesheet" href="static/css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="static/css/css2.css">
+    <link rel="stylesheet" href="static/css/fontawesome.min.css">
+    <!--script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>-->
+    <style>
+        .btnExit{
+            min-width: 80px;
+            color: #fff;
+            border: 0;
+            border-radius: 2rem;
+            background: #59ab6e;
+        }
+        
+    </style>
+</head>
+
+<body onload="load_data()">
+    <!-- Start Top Nav -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@Dtt.com</a>
+                    <i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                </div>
+                <div>
+                    <a class="text-light" href="javascript:;" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="javascript:;" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="javascript:;" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="javascript:;" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
+
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                Dttbank
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Digital.html">電子服務</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Deposit.html">存款</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="CreditCard.html">信用卡</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a>
+
+                    <a class="nav-icon position-relative text-decoration-none" href="Login.html">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <!--span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>-->
+                    </a>
+                    <a id="aNoUser">No user logged in</a>
+                    <a id="aUserName"></a>
+                    <button class="btnExit" id="btnExit" onclick="exitUser()">退出</button>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <!-- Modal -->
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    
+    <!-- Start Banner Hero -->
+    <!--div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel" >
+        <ol class="carousel-indicators">
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-first">
+                            <img class="img-fluid" src="static/picture/you_mbanner_banking.jpg" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-success"><b>優易理財</b></h1>
+                                <h3 class="h2">迎新獎賞高達19,650港元</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-first">
+                            <a href="CreditCard.html"><img class="img-fluid" src="static/picture/cc_mbanner_onecard_tc.jpg" alt=""></a>
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1 text-success"><b>DTT ONE+ 信用卡</b></h1>
+                                <h3 class="h2">高達800港元現金回贈</h3>
+                                <h3 class="h2">或迷你投影機</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-first">
+                            <img class="img-fluid" src="static/picture/pl_mbanner_em_tc.jpg" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1 text-success"><b>分期「快應錢」</b></h1>
+                                <h3 class="h2">實際年利率低至1.38%</h3>
+                                <h3 class="h2">貸款方案幫您度到盡</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-first">
+                            <img class="img-fluid" src="static/picture/wm_mbanner_fxclub.jpg" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1 text-success"><b>外匯賞會籍計劃</b></h1>
+                                <h3 class="h2">尊享高達40點子無上限</h3>
+                                <h3 class="h2">外匯賞優惠</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div-->
+    <!-- End Banner Hero -->
+    
+    <!--display create card detail-->
+    <div id="VipArticleDetail" style="background-color: #efefef;">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row p-4 justify-content-center">
+                        <div class="col-md-8  order-lg-first">
+                            <img class="img-fluid" src="static/picture/wm_top_vip_tc.jpg" alt="">
+                        </div>
+                        <div class="col-md-8 order-lg-first">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-success"><b>VIP 銀行服務</b></h1>
+                                <h2 class="h2">智全面&nbsp&nbsp專為您</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <section class="container py-5" id="VipArticle" data-articleid="001">       
+        <h2 class="h2" style="text-align: center;">專業的財富管理資訊及方案</h2>
+        <p>「證券交易 App+」備有「港股板塊熱度圖」、「認股證及牛熊證搜尋器」、「策略選股」及「追蹤策略」功能******，利用全面的基本及技術分析部署投資策略及篩選心儀股票專業財富管理資訊，按您的理財需要提供合適市場資訊
+            PowerWealth 靈活融資服務^^^^^^，由定存至多種投資產品均可用作資產抵押，備用額可高達百分百資產值及設有多種貨幣選擇，讓您以低成本激活致富潛力
+            ******有關詳情請參閱「策略選股」／「追蹤策略」服務簡介。
+            ^^^^^^本行擁有絕對酌情權訂明及隨時更改 PowerWealth 靈活融資服務之可抵押資產類別、貸款利率、最高信貸成數、收費及其他條款及細則而毋須給予任何理由。有關個別資產之抵押成數，請向本行職員查詢。PowerWealth 靈活融資服務之最終授信額、利率、收費及其他條款細則，須視乎本行的審批結果而定，並以客戶接納並簽署之有關貸款文件為準。本行保留最終批核貸款之權利。本行保留隨時終止或更改有關優惠及批核 PowerWealth 靈活融資服務，及不時修訂有關之條款及細則之權利。如有任何查詢或索取有關條款及細則詳情，歡迎與本行職員聯絡。如就 PowerWealth 靈活融資服務有任何爭議，本行保留最終決定權。
+        </p>
+    </section>
+
+
+    <!-- Start Featured Product -->
+    <!--section class="bg-light">
+        <div class="container py-5">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">e-資訊</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="shop-single.html">
+                            <img src="static/picture/eb_promo_revamp_tc.jpg" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">升級版網上理財</a>
+                            <p class="card-text">
+                                嶄新功能，緊貼您需要，理財零煩惱
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="shop-single.html">
+                            <img src="static/picture/eb_promo_express_tc.jpg" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">e 直通遙距申請</a>
+                            <p class="card-text">
+                                體驗全新存款戶口及證券／投資戶口及服務、信用卡、私人貸款申請
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="shop-single.html">
+                            <img src="static/picture/eb_promo_mobileapp.jpg" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">DTT手機應用程式</a>
+                            <p class="card-text">
+                                捉緊生活每個時刻．自在自主．隨時隨心
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section-->
+    <!-- End Featured Product -->
+
+
+    <!-- Start Footer -->
+    <footer class="bg-dark" id="tempaltemo_footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">關注我們</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="">DTT銀行</a></li>
+                        <li><a class="text-decoration-none" href="">關於我們</a></li>
+                        <li><a class="text-decoration-none" href="">事業良機</a></li>
+                        <li><a class="text-decoration-none" href="#">新聞稿</a></li>
+                        <li><a class="text-decoration-none" href="#">監管披露</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">&nbsp;</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="#">重要告示</a></li>
+                        <li><a class="text-decoration-none" href="#">閱覽須知及重要聲明</a></li>
+                        <li><a class="text-decoration-none" href="#">互聯網保安</a></li>
+                        <li><a class="text-decoration-none" href="#">系統升級時間表</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">&nbsp;</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="#">幫忙及支援</a></li>
+                        <li><a class="text-decoration-none" href="#">分行／自動櫃員機</a></li>
+                        <li><a class="text-decoration-none" href="#">聯絡我們</a></li>
+                        <li><a class="text-decoration-none" href="#">無障礙服務</a></li>
+                        <li><a class="text-decoration-none" href="#">網頁指南</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="row text-light mb-4">
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
+                <div class="col-auto me-auto">
+                    <ul class="list-inline text-left footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="javascript:;"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="javascript:;"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="javascript:;"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="javascript:;"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-auto">
+                    <label class="sr-only" for="subscribeEmail">Email address</label>
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
+                        <div class="input-group-text btn-success text-light">Subscribe</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 bg-black py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            &copy; 版權所有。DTT銀行有限公司 2000-2022 。不得轉載。</a>
+                            
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Start Script -->
+    <script type="text/javascript" src="//cdn.evgnet.com/beacon/partnerdeloittechina/dttbank/scripts/evergage.min.js"></script>
+
+    <script src="static/js/jquery-1.11.0.min.js"></script>
+    <script src="static/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/templatemo.js"></script>
+    <script src="static/js/custom.js"></script>
+    <script src="static/js/selector.js"></script>
+    <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>-->
+    <script>
+ 
+        function cl(obj){
+         
+        $(obj).next("span").find("span").each(function(){
+         
+        $(this).hide();
+         
+        });
+         
+        $("#span" + obj.value).show();
+         
+        }
+
+        function load_data(){
+            var getUserName=localStorage.getItem("user_Name");
+            var getUserId=localStorage.getItem("user_Id");
+            
+                console.log("userName is:"+getUserName);
+            //localStorage.removeItem("user");
+            //console.log("username is remove:"+localStorage.removeItem("user"));
+            
+            if(getUserName==null||getUserName==""||getUserName=="undefined"){
+               $("#aNoUser").show(); 
+               $("#aUserName").html("");
+               $("#btnExit").hide(); 
+                //$("#uname").html('');
+            }else{
+                $("#aNoUser").hide();  
+                $("#aUserName").html(getUserName);
+                $("#btnExit").show(); 
+                //$("#uname").html(getUserName);
+            }
+        }
+        
+        function exitUser(){
+            localStorage.removeItem("user_Name"); 
+            localStorage.removeItem("user_Id");
+            
+            load_data();
+        }
+        </script>
+
+
+       
+
+    <!-- End Script -->
+</body>
+
+</html>
