@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>DttBank</title>
+    <title>DepositArticle</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="static/css/css2.css">
     <link rel="stylesheet" href="static/css/fontawesome.min.css">
     <!--script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>-->
-
     <style>
         .btnExit{
             min-width: 80px;
@@ -31,7 +30,6 @@
 </head>
 
 <body onload="load_data()">
-
     <!-- Start Top Nav -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
         <div class="container text-light">
@@ -125,9 +123,9 @@
     </div>
 
 
-
+    
     <!-- Start Banner Hero -->
-    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel" >
+    <!--div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel" >
         <ol class="carousel-indicators">
             <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
             <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
@@ -205,33 +203,11 @@
         <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
             <i class="fas fa-chevron-right"></i>
         </a>
-    </div>
+    </div-->
     <!-- End Banner Hero -->
     
     <!--display create card detail-->
-    <div id="CreateCardDetail" style="background-color: #efefef;display:none;">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row p-4 justify-content-center">
-                        <div class="col-md-8  order-lg-first">
-                            <img class="img-fluid" src="static/picture/cc_mbanner_onecard_tc.jpg" alt="">
-                        </div>
-                        <div class="col-md-8 order-lg-first">
-                            <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>DTT ONE+ 信用卡</b></h1>
-                                <h3 class="h2">高達800港元現金回贈</h3>
-                                <h3 class="h2">或迷你投影機</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--display deposit card detail-->
-    <div id="DepositCardDetail" style="background-color: #efefef;display:none;">
+    <div id="VipArticleDetail" style="background-color: #efefef;">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="container">
@@ -241,8 +217,8 @@
                         </div>
                         <div class="col-md-8 order-lg-first">
                             <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>存款·優易理財</b></h1>
-                                <h3 class="h2">迎新獎賞高達19,650港元</h3>
+                                <h1 class="h1 text-success"><b>360°「易出糧」服務</b></h1>
+                                <h2 class="h2">高達2.3%額外活期存款年利率</h2>
                             </div>
                         </div>
                     </div>
@@ -251,102 +227,17 @@
         </div>
     </div>
 
-    <!--display digital detail-->
-    <div id="DigitalDetail" style="background-color: #efefef;display:none;">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row p-4 justify-content-center">
-                        <div class="col-md-8  order-lg-first">
-                            <img class="img-fluid" src="static/picture/eb_top_teaser_tc.jpg" alt="">
-                        </div>
-                        <div class="col-md-8 order-lg-first">
-                            <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>升級版網上理財</b></h1>
-                                <h3 class="h2">嶄新功能，緊貼您需要，理財零煩惱</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
-    <section class="container py-5" id="article1" data-articleid="001">       
-        <h2  style="text-align: center;">發掘更多有關
-            <select onchange="cl(this)"style="color:#59ab6e;border-color:white">
-                <option value="1" >最新優惠</option>
-                <option value="2"> 存款</option>
-                <option value="3"> 信用卡</option>
-            </select>
-            <span id="selectSpan">
-            <span id="span1">
-                <div class="row">
-                    <div class="col-12 col-md-4 p-5 mt-3">
-                        <a href="VipArticle.html"><img src="static/picture/vip_sbanner_banking.jpg" ></a>
-                        <h5 class="text-center mt-3 mb-3">VIP 銀行服務</h5>
-                        <p class="text-center mt-3 mb-3">外幣兌換0差價及</p>
-                        <p class="text-center mt-3 mb-3">高達11%指定外幣定存年利率</p>
-                    </div>
-                    <div class="col-12 col-md-4 p-5 mt-3">
-                        <a href="DepositArticle.html"><img src="static/picture/dp_sbanner_payroll.jpg" ></a>
-                        <h5 class="text-center mt-3 mb-3">360°「易出糧」服務</h5>
-                        <p class="text-center mt-3 mb-3">高達2.3%額外活期存款年利率</p>
-                    </div>
-                    <div class="col-12 col-md-4 p-5 mt-3">
-                        <a href="CreditCardArticle.html"><img src="static/picture/cc_sbanner_staycation.jpg" ></a>
-                        <h5 class="text-center mt-3 mb-3">信用卡優惠 - Staycation 及預訂酒店</h5>
-                        <p class="text-center mt-3 mb-3">享受一系列酒店禮遇</p>
-                    </div>
-                </div>
-            </span>
-            <span id="span2" style="display:none;">
-                <div class="row">
-                    <div class="col-12 col-md-4 p-5 mt-3">
-                        <a href="#"><img src="static/picture/vip_sbanner_banking.jpg" ></a>
-                        <h5 class="text-center mt-3 mb-3">VIP 銀行服務</h5>
-                        <p class="text-center mt-3 mb-3">外幣兌換0差價及</p>
-                        <p class="text-center mt-3 mb-3">高達11%指定外幣定存年利率</p>
-                    </div>
-                    <div class="col-12 col-md-4 p-5 mt-3">
-                        <a href="#"><img src="static/picture/you_sbanner_banking.jpg" ></a>
-                        <h5 class="text-center mt-3 mb-3">優易理財</h5>
-                        <p class="text-center mt-3 mb-3">迎新獎賞高達19,650港元現金獎賞</p>
-                    </div>
-                    <div class="col-12 col-md-4 p-5 mt-3">
-                        <a href="#"><img src="static/picture/dp_sbanner_payroll.jpg" ></a>
-                        <h5 class="text-center mt-3 mb-3">360°「易出糧」服務</h5>
-                        <p class="text-center mt-3 mb-3">高達2.3%額外活期存款年利率</p>
-                    </div>
-                </div>
-            </span>
-            <span id="span3" style="display:none;">
-                <div class="row">
-                    <div class="col-12 col-md-4 p-5 mt-3">
-                        <a href="#"><img src="static/picture/cc_sbanner_healthcare.jpg" ></a>
-                        <h5 class="text-center mt-3 mb-3">健康主義</h5>
-                        <p class="text-center mt-3 mb-3">BeHEALTH 痛症中心半價優惠</p>
-                    </div>
-                    <div class="col-12 col-md-4 p-5 mt-3">
-                        <a href="#"><img src="static/picture/cc_sbanner_dsi.jpg" ></a>
-                        <h5 class="text-center mt-3 mb-3">投保DTT保險專享優惠</h5>
-                        <p class="text-center mt-3 mb-3">保費低至8折　額外5%現金回贈</p>
-                    </div>
-                    <div class="col-12 col-md-4 p-5 mt-3">
-                        <a href="#"><img src="static/picture/cc_sbanner_cashin_tc.jpg" ></a>
-                        <h5 class="text-center mt-3 mb-3">信用卡兌現計劃</h5>
-                        <p class="text-center mt-3 mb-3"> 每月手續費低至0.06%</p>
-                        <p class="text-center mt-3 mb-3"> 再送高達1,288港元現金獎賞</p>
-                    </div>
-                </div>
-            </span>
-        </span>
-    </h2>
+    <section class="container py-5" id="VipArticle" data-articleid="001">       
+        <h2 class="h2" style="text-align: center;">360°「易出糧」服務</h2>
+        <p>高達2.3%額外活期存款年利率
+        </p>
     </section>
 
 
     <!-- Start Featured Product -->
-    <section class="bg-light">
+    <!--section class="bg-light">
         <div class="container py-5">
             <div class="row text-center py-3">
                 <div class="col-lg-6 m-auto">
@@ -356,7 +247,7 @@
             <div class="row">
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="UpgradArticle.html">
+                        <a href="shop-single.html">
                             <img src="static/picture/eb_promo_revamp_tc.jpg" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
@@ -422,7 +313,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section-->
     <!-- End Featured Product -->
 
 
@@ -513,9 +404,7 @@
     <!-- End Footer -->
 
     <!-- Start Script -->
-    <script type="text/javascript" async src="//cdn.evgnet.com/beacon/partnerdeloittechina/dttbank/scripts/evergage.min.js"></script>
- 
-    <!--script type="text/javascript" async src="//cdn.evgnet.com/beacon/partnerdeloittechina/dttbank/scripts/evergage.min.js"></script-->
+    <script type="text/javascript" src="//cdn.evgnet.com/beacon/partnerdeloittechina/dttbank/scripts/evergage.min.js"></script>
 
     <script src="static/js/jquery-1.11.0.min.js"></script>
     <script src="static/js/jquery-migrate-1.2.1.min.js"></script>
